@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 //http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=68e44fd6eab931b1a515299e75d9562e&targetDt=20120101
 class MovieApi {
-  final api_key = '68e44fd6eab931b1a515299e75d9562e';
+  final api_key = '너꺼써라';
 
   Future<List<dynamic>> search({required String date}) async {
     String site =
