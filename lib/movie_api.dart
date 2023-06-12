@@ -20,15 +20,16 @@ class MovieApi {
     }
   }
 
-  Future<dynamic> searchDetail({required String moviecode}) async {
+  Future<List<dynamic>> searchDetail({required String moviecode}) async {
     String site =
         'http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=$api_key&movieCd=$moviecode';
     var response = await http.get(Uri.parse(site));
     print(site);
     if (response.statusCode == 200) {
+      print('a');
       var movies = jsonDecode(response.body)['movieInfoResult']['movieInfo']
           as List<dynamic>;
-      print(response.body);
+      print('b');
       return movies;
     } else {
       return [];
