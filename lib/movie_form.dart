@@ -31,11 +31,14 @@ class Movie_Form extends StatelessWidget {
           height: 200,
           child: Row(
             children: [
-              const SizedBox(
+              SizedBox(
                 width: 200,
                 //"http://file.koreafilm.or.kr/thm/02/00/03/23/tn_DPF010774.JPG"
                 child: SizedBox(
-                  child: Text('그림 이었던 것'),
+                  child: Text(
+                    '랭크. ${movie['rank']}',
+                    style: const TextStyle(fontSize: 30),
+                  ),
                 ),
               ),
               const SizedBox(
