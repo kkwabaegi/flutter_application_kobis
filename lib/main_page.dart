@@ -22,10 +22,13 @@ class _MainPageState extends State<MainPage> {
 
   void showCal() async {
     var dt = await showDatePicker(
-        context: context,
-        initialDate: DateTime.now().subtract(const Duration(days: 1)),
-        firstDate: DateTime(2023, 03, 02),
-        lastDate: DateTime.now().subtract(const Duration(days: 1)));
+      context: context,
+      initialDate: DateTime.now().subtract(const Duration(days: 1)),
+      firstDate: DateTime(2023, 03, 02),
+      lastDate: DateTime.now().subtract(const Duration(days: 1)),
+      locale: const Locale('ko', 'KR'),
+    );
+
     //2023-05-16 00:00:00.000 - 2023-05-20 00:00:00.000
     String selectedDate = dt.toString().split(' ')[0].replaceAll('-', '');
     MovieApi movieApi = MovieApi();
@@ -64,7 +67,9 @@ class _MainPageState extends State<MainPage> {
         body: body,
         floatingActionButton: FloatingActionButton(
           onPressed: showCal,
-          child: const Icon(Icons.calendar_month_rounded),
+          child: const Icon(
+            Icons.calendar_month_rounded,
+          ),
         ));
   }
 }
