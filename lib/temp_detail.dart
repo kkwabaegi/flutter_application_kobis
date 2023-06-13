@@ -38,17 +38,6 @@ class _MovieDetailState extends State<MovieDetail> {
                                   fontSize: 50, fontWeight: FontWeight.bold)),
                         ),
                       ),
-                      Row(
-                        children: [
-                          Expanded(
-                              child: Text(
-                            '키워드 : ${movieData['typeNm']}',
-                            style: const TextStyle(
-                              fontSize: 20,
-                            ),
-                          )),
-                        ],
-                      ),
                     ],
                   ),
                 ),

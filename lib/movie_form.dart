@@ -50,8 +50,12 @@ class Movie_Form extends StatelessWidget {
                   children: [
                     Text('$movieTitle (${movie['openDt']})',
                         style: const TextStyle(fontSize: 20)),
-                    const Text('설명',
-                        style: TextStyle(fontSize: 15, color: Colors.grey)),
+                    Text('누적 매출액 : ${movie['salesAcc']}원',
+                        style:
+                            const TextStyle(fontSize: 15, color: Colors.grey)),
+                    Text('누적 관객수 : ${movie['audiAcc']}명',
+                        style:
+                            const TextStyle(fontSize: 15, color: Colors.grey)),
                   ],
                 ),
               )

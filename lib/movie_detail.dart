@@ -16,6 +16,15 @@ class _MovieDetailState extends State<MovieDetail> {
     var movieApi = MovieApi();
     var movie = movieApi.searchDetail(moviecode: widget.movieCd);
 
+    //var movieTitle = movie['movieNm'];
+    // print(movieTitle);
+    /* dynamic titleImage = movie['posters'].toString().isEmpty
+        ? Image.asset('assets/images/no_image.png')
+        : Image.network(movie['posters'].toString().split('|')[0]); */
+    //var stills = movie['stlls'].toString().split('|');
+
+    //만약 없으면 로컬 이미지
+    //있으면 네트워크 이미지
     return Scaffold(
         appBar: AppBar(title: const Text('영화 상세 정보')),
         body: FutureBuilder(
@@ -37,17 +46,27 @@ class _MovieDetailState extends State<MovieDetail> {
                                     fontSize: 50, fontWeight: FontWeight.bold)),
                           ),
                         ),
-                        Row(
-                          children: [
-                            Expanded(
-                                child: Text(
-                              '영화길이 : ${movieData['typeNm']}',
-                              style: const TextStyle(
-                                fontSize: 20,
-                              ),
-                            )),
-                          ],
+                        Container(
+                          width: double.infinity,
+                          alignment: Alignment.centerLeft,
+                          child: const Text(
+                            '배우 목록',
+                            style: TextStyle(
+                              fontSize: 40,
+                            ),
+                          ),
                         ),
+                        for (int i = 0; i < movieData['actors'].length; i++)
+                          Container(
+                            width: double.infinity,
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              '${movieData['actors'][i]['cast']} - ${movieData['actors'][i]['peopleNm']}',
+                              style: const TextStyle(
+                                fontSize: 30,
+                              ),
+                            ),
+                          ),
                       ],
                     ),
                   ),
